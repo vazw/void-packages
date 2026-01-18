@@ -1,6 +1,6 @@
 # Template file for 'firewalld'
 pkgname=firewalld
-version=2.3.1
+version=2.4.0
 revision=1
 build_style=gnu-configure
 hostmakedepends="autoconf pkg-config docbook-xsl xmlcatmgr intltool libxslt
@@ -11,7 +11,7 @@ maintainer="Daniel Martinez <danielmartinez@cock.li>"
 license="GPL-2.0-or-later"
 homepage="https://firewalld.org/"
 distfiles="https://github.com/firewalld/firewalld/releases/download/v${version}/firewalld-${version}.tar.bz2"
-checksum=719890d82caa7d162b021ed646034883b9eb354a45de3685c28ead057d139d4d
+checksum=992853451a58d229068c0ed10c3e007b2032c0fb654f27d656bfa3c120a2f132
 python_version=3
 conf_files="/etc/firewalld/firewalld.conf /etc/sysconfig/firewalld"
 # firewalld does not believe it is root in the chroot and fails
