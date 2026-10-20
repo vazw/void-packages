@@ -1,6 +1,6 @@
 # Template file for 'opencode'
 pkgname=opencode
-version=2.0.32
+version=2.1.1
 revision=1
 archs="x86_64 x86_64-musl aarch64 aarch64-musl"
 build_style=fetch
@@ -35,25 +35,25 @@ case "$XBPS_TARGET_MACHINE" in
 	x86_64)
 		distfiles="https://opencode.ai/files/bin/${version}/opencode-linux-x64.tar.gz
 		 https://raw.githubusercontent.com/anomalyco/opencode/v${version}/LICENSE"
-		checksum="ba3f5d9dd983f12f06981b5b9eb966c03db63266afab28adc4000bbad6adc33c
+		checksum="b7070ffb7c255b9633f69dee8b068f4f3ac35bdc33d44841dde67deb88ff4853
 		 625f0f619133f89bbbb2abe37369613dfa1885eba1e50d02170deb62bb42cb6b"
 		;;
 	x86_64-musl)
 		distfiles="https://opencode.ai/files/bin/${version}/opencode-linux-x64-musl.tar.gz
 		 https://raw.githubusercontent.com/anomalyco/opencode/v${version}/LICENSE"
-		checksum="ddac700355268ca404e83607b8af5bac885a39dbe67fb255184f0f2ad4e78357
+		checksum="8e1e7649370a30f3cc979c7eee0cbb74cf236ffda5c673c7fe5f3c75dad8dfa8
 		 625f0f619133f89bbbb2abe37369613dfa1885eba1e50d02170deb62bb42cb6b"
 		;;
 	aarch64)
 		distfiles="https://opencode.ai/files/bin/${version}/opencode-linux-arm64.tar.gz
 		 https://raw.githubusercontent.com/anomalyco/opencode/v${version}/LICENSE"
-		checksum="c2e4f6c94f2e58a2df99cc647bd37285569600d7435e3796152825d8c9d10382
+		checksum="7f387077e0ba7d26964d19b9b31fac784ec4edb759f2b5fe34878aeb4b0545b1
 		 625f0f619133f89bbbb2abe37369613dfa1885eba1e50d02170deb62bb42cb6b"
 		;;
 	aarch64-musl)
 		distfiles="https://opencode.ai/files/bin/${version}/opencode-linux-arm64-musl.tar.gz
 		 https://raw.githubusercontent.com/anomalyco/opencode/v${version}/LICENSE"
-		checksum="a7eb0269671b10e09f3ac905b7fbed25518cefc2b51dce1ca5234e25f27dee57
+		checksum="794e53431742faa06bdefe724e5652b43edd69d8c5b51bec6347fb6fe79bd8a5
 		 625f0f619133f89bbbb2abe37369613dfa1885eba1e50d02170deb62bb42cb6b"
 		;;
 	esac
