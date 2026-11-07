@@ -1,29 +1,36 @@
 # Template file for 'ghostty'
 pkgname=ghostty
-version=1.1.3
+version=1.4.0
 revision=1
 build_style=zig-build
 configure_args="
  -Doptimize=ReleaseFast
  -Dpie
  -Dversion-string=${version}
+ -Dinstalled-exe-path=/usr/bin/ghostty
  -fsys=freetype
  -fsys=fontconfig
  -fsys=harfbuzz"
-hostmakedepends="pkg-config glib-devel pandoc"
-makedepends="fontconfig-devel freetype-devel harfbuzz-devel gtk4-devel libadwaita-devel"
+hostmakedepends="pkg-config glib-devel pandoc gettext ncurses"
+makedepends="fontconfig-devel freetype-devel harfbuzz-devel gtk4-devel
+ gtk4-layer-shell-devel libadwaita-devel bzip2-devel"
 depends="ghostty-terminfo-${version}_${revision}"
 short_desc="Fast and feature-rich terminal emulator that uses GPU acceleration"
 maintainer="Duncaen <duncaen@voidlinux.org>"
 license="MIT"
 homepage="https://ghostty.org/"
-distfiles="https://github.com/ghostty-org/ghostty/archive/refs/tags/v${version}.tar.gz"
-checksum=66c596ed7679d9f7b3ff84fcc019b3a3754ca97a7b7857e5b26d67c80e6e2b95
+distfiles="https://release.files.ghostty.org/${version}/ghostty-${version}.tar.gz"
+checksum=cb188ac6c3a8278d5fd7bfef15d8c017104c87f638b5560eb38024a71ae0f005
 
 case "${XBPS_TARGET_MACHINE}" in
-	armv*) broken="src/apprt/gtk/cgroup.zig:70:14: error: expected type 'usize', found 'u64'" ;;
+	armv*) broken="src/apprt/gtk/cgroup.zig: glib Variant int cast fails on 32-bit arm" ;;
 esac
 
+# zig emits libghostty-vt.a with archive member names that still carry their
+# build-tree paths (.zig-cache/o/<hash>/<file>.o). The data is inline and the
+# archive links fine, but GNU strip extracts members by name and cannot create
+# those paths, so the post-install strip hook aborts the package.
+nostrip_files="libghostty-vt.a"
 
 post_install() {
 	vlicense LICENSE
