@@ -1,0 +1,32 @@
+# Template file for 'zig0.17'
+pkgname=zig0.17
+version=0.17.1
+revision=1
+archs="x86_64* aarch64*"
+build_style=cmake
+configure_args="-DZIG_TARGET_MCPU=baseline"
+make_cmd=make
+# we add xml2, zstd, zlib and ncurses
+# because our lld is static-only and requires those to work
+makedepends="clang22-devel llvm22-devel lld22-devel libxml2-devel libzstd-devel ncurses-devel zlib-devel"
+short_desc="Programming language designed for robustness, optimality, and clarity"
+maintainer="vazw <vaz@siamstr.com>"
+license="MIT"
+homepage="https://ziglang.org"
+distfiles="https://ziglang.org/download/${version}/zig-${version}.tar.xz"
+checksum=1e89bf06610b769a8c77676c6c8d54b093a0db60f4891f2f91014829012f0e24
+nopie=yes
+nocross=yes
+replaces="zig<0.17"
+
+export CMAKE_GENERATOR="Unix Makefiles"
+
+post_install() {
+	vlicense LICENSE
+	# zig >= 0.17 installs the language reference at <prefix>/doc/langref.html
+	# (build.zig:41 addInstallFileWithDir(..., .prefix, "doc/langref.html"));
+	# Void forbids /usr/doc, so move it under /usr/share/doc/zig.
+	vmkdir usr/share/doc/zig
+	mv "${DESTDIR}/usr/doc/langref.html" "${DESTDIR}/usr/share/doc/zig/langref.html"
+	rmdir "${DESTDIR}/usr/doc"
+}
