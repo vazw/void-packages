@@ -10,4 +10,5 @@ license="GPL-3.0-or-later"
 homepage="https://git.sr.ht/~mil/mepo"
 distfiles="https://git.sr.ht/~mil/mepo/archive/${version}.tar.gz"
 checksum=83dcd04dc38230e4b0beebb1f8ea72100adc551dac5b451b8f185b71f04fab68
+broken="build blocked in the curl-8.22.0 dependency (libngtcp2.a not built with -fPIC); mepo's zig 0.17.1 compatibility not evaluated; see W2 report"
 nopie=yes
