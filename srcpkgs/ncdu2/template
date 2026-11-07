@@ -13,6 +13,8 @@ homepage="https://dev.yorhel.nl/ncdu"
 changelog="https://dev.yorhel.nl/ncdu/changes2"
 distfiles="https://dev.yorhel.nl/download/ncdu-${version}.tar.gz"
 checksum=b218cc14a2bb9852cf951db4e21aec8980e7a8c3aca097e3aa3417f20eb93000
+_zig_pkg=zig0.13
+_zig_cmd=zig0.13
 conflicts="ncdu"
 
 post_install() {
