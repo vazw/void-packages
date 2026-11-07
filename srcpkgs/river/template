@@ -15,6 +15,8 @@ license="GPL-3.0-only"
 homepage="https://codeberg.org/river/river"
 distfiles="https://codeberg.org/river/river/releases/download/v${version}/river-${version}.tar.gz"
 checksum=a6007ff0ad1cd46b2229661c28e4602aa6fe160872293f0749c17fa95b78a873
+_zig_pkg=zig0.13
+_zig_cmd=zig0.13
 
 build_options="xwayland"
 build_options_default="xwayland"
