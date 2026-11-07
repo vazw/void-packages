@@ -12,6 +12,8 @@ license="MIT"
 homepage="https://github.com/nmeum/creek"
 distfiles="https://github.com/nmeum/creek/archive/refs/tags/v${version}.tar.gz"
 checksum=bb9cffb0c5980524e5338cea0c11f87dcf3813a90626a69e504665961fb13401
+_zig_pkg=zig0.13
+_zig_cmd=zig0.13
 
 post_install() {
 	vlicense LICENSE
