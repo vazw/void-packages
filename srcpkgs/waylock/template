@@ -12,6 +12,8 @@ license="ISC"
 homepage="https://codeberg.org/ifreund/waylock"
 distfiles="https://codeberg.org/ifreund/waylock/releases/download/v${version}/waylock-${version}.tar.gz"
 checksum=b7ec04c1dc0c6adb47045b4f604cb35988e9ca93bd4f3317fcc91bfac7bf075a
+_zig_pkg=zig0.13
+_zig_cmd=zig0.13
 
 post_install() {
 	vlicense LICENSE
