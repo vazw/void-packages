@@ -12,6 +12,8 @@ license="GPL-3.0-or-later"
 homepage="https://git.sr.ht/~novakane/zelbar"
 distfiles="https://git.sr.ht/~novakane/zelbar/archive/v${version}.tar.gz"
 checksum=9e5f46188142280f6eadb1de755aa0bab2f545eaada525df1439ac1b0c5bbf68
+_zig_pkg=zig0.13
+_zig_cmd=zig0.13
 
 # zig-wayland 0.2.0 emits postError for wl_shm but drops Error below wl_shm v3
 post_patch() {
