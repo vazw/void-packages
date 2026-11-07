@@ -1,1 +1,1 @@
-hostmakedepends+=" zig"
+hostmakedepends+=" ${_zig_pkg:-zig}"

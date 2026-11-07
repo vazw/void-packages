@@ -1,5 +1,6 @@
 do_build() {
 	local zig_target zig_cpu
+	local zig_cmd="${_zig_cmd:-${_zig_pkg:-zig}}"
 
 	# TODO: This duplication between build-profiles and cross-profiles
 	# is totally unnecessary. It would be nice if there was some way to
@@ -28,7 +29,7 @@ do_build() {
 	# directory and later copy the artifacts to the destdir in do_install().
 	# We use zig-out to avoid path conflicts as it is the default install
 	# prefix used by the zig build system.
-	DESTDIR="zig-out" zig build \
+	DESTDIR="zig-out" "${zig_cmd}" build \
 		${makejobs} \
 		--sysroot "${XBPS_CROSS_BASE}" \
 		--search-prefix "${XBPS_CROSS_BASE}/usr" \
